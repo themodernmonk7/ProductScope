@@ -24,14 +24,16 @@ import {
 const LineChart = ({stocks, productTitle}) => {
 
     const data = {
-        labels: productTitle,
-        datasets: [{
-            label: 'Stock',
-            data: stocks,
-            backgroundColor: 'aqua',
-            borderColor: 'black',
-            pointBorderColor: 'aqua',
-        }]
+      labels: productTitle, // y axis
+      datasets: [
+        {
+          label: "stock",
+          data: stocks,
+          backgroundColor: "aqua",
+          borderColor: "black",
+          pointBorderColor: "aqua",
+        },
+      ],
     }
 
     const options = {

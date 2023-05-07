@@ -40,47 +40,75 @@ const ProductTable = () => {
     
   return (
     <>
-    <section className=" container mx-auto mt-10 ">
-    <table className=" table-fixed border-collapse border border-slate-500 ">
-  <thead>
-    <tr className=' bg-gray-200 ' >
-          <th className="border border-slate-600 w-36" >ID</th>
-          <th className="border border-slate-600 w-36" >Title</th>
-          <th className="border border-slate-600 w-1/4 " >Description</th>
-          <th className="border border-slate-600 w-36" >Price</th>
-          <th className="border border-slate-600 w-36 " >Discount Percentage</th>
-          <th className="border border-slate-600 w-36" >Rating</th>
-          <th className="border border-slate-600 w-36" >Stock</th>
-          <th className="border border-slate-600 w-36" >Brand</th>
-          <th className="border border-slate-600 w-36 " >Category</th>
-    </tr>
-  </thead>
-  <tbody>
-  {products.map((product) => {
-const {id, brand, category, description, discountPercentage,  price, rating, stock, title} = product
-    return(
-      <tr key={product.id}>
-            <td className="border border-slate-600 text-center py-2 " >{id}</td>
-            <td className="border border-slate-600 text-center py-2 " >{title}</td>
-            <td className="border border-slate-600 text-center py-2 px-5 " >{description}</td>
-            <td className="border border-slate-600 text-center py-2  " >{price}</td>
-            <td className="border border-slate-600 text-center py-2 " >{discountPercentage}</td>
-            <td className="border border-slate-600 text-center py-2 " >{rating}</td>
-            <td className="border border-slate-600 text-center py-2 " >{stock}</td>
-            <td className="border border-slate-600 text-center py-2 " >{brand}</td>
-            <td className="border border-slate-600 text-center py-2 " >{category}</td>
-          </tr>
-    )
-  })
-  }
-      </tbody>
-</table>
-</section>
-<section className=" container mx-auto flex flex-col md:flex-row justify-between items-start my-10 space-y-10 md:space-y-0 ">
-  <LineChart stocks={stocks} productTitle={productTitle} />
-  <PieChart categories={categories} stocks={stocks}/>
-</section>
-
+      <section className=" container mx-auto mt-10 ">
+        <table className=" table-fixed border-collapse border border-slate-500 ">
+          <thead>
+            <tr className=" bg-gray-200 ">
+              <th className="w-36 border border-slate-600">ID</th>
+              <th className="w-36 border border-slate-600">Title</th>
+              <th className="w-1/4 border border-slate-600">Description</th>
+              <th className="w-36 border border-slate-600">Price</th>
+              <th className="w-36 border border-slate-600 ">
+                Discount Percentage
+              </th>
+              <th className="w-36 border border-slate-600">Rating</th>
+              <th className="w-36 border border-slate-600">Stock</th>
+              <th className="w-36 border border-slate-600">Brand</th>
+              <th className="w-36 border border-slate-600 ">Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => {
+              const {
+                id,
+                brand,
+                category,
+                description,
+                discountPercentage,
+                price,
+                rating,
+                stock,
+                title,
+              } = product
+              return (
+                <tr key={product.id}>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {id}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {title}
+                  </td>
+                  <td className="border border-slate-600 px-5 py-2 text-left ">
+                    {description}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center  ">
+                    {price}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {discountPercentage}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {rating}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {stock}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {brand}
+                  </td>
+                  <td className="border border-slate-600 py-2 text-center ">
+                    {category}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </section>
+      <section className=" container mx-auto my-10 flex flex-col items-start justify-between space-y-10 md:flex-row md:space-y-0 ">
+        <LineChart stocks={stocks} productTitle={productTitle} />
+        <PieChart categories={categories} stocks={stocks} />
+      </section>
     </>
   )
 }
